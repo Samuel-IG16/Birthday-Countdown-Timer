@@ -86,7 +86,27 @@
           document.getElementById("minutes").textContent = m;
           document.getElementById("seconds").textContent = s;
 
-          var t = setTimeout(countDown, 1000);
+          var t = setTimeout(countDown, 100);
+
+  <!-- This gives the birthday text a display of different colors-->
+          var text = document.querySelector("p")
+
+          text.style.color = "red";
+
+          function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+               color += letters[Math.floor(Math.random()*16)]
+            }
+            return color
+           }
+
+           setInterval(function changeParagraphColor() {
+              colorInput = getRandomColor()
+              text.style.color = colorInput;
+           }, 500);
+
 
           if (d == 0 && h == 0 && m == 0 && s == 0) {
             clearTimeout(t);
