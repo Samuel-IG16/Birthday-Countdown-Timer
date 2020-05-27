@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="UTF-8" name="viewport"
+    content="width=device-width,initial-scale=1"> -->
+    <style media="screen">
+      body{
+        text-align: center;
+        background: white;
+        font-weight: 100;
+      }
+      .countDownConatainer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        border: 1px solid #999;
+        box-shadow: 0 0 5px 3px #ccc;
+      }
+      h1{
+        color: #396;
+        font-weight: 100;
+        font-size: 80px;
+        margin: 40px 0px 20px;
+      }
+      #clockdiv{
+        color: #fff;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 30px;
+      }
+      #clockdiv > div{
+        padding: 10px;
+        border-radius: 3px;
+        background: #00BF96;
+        display: inline-block;
+      }
+      #clockdiv div > span{
+        padding: 15px;
+        font-size: 33px;
+        background: #00816A;
+        /*display: inline-block;*/
+      }
+      smalltext{
+        padding: 5px;
+        font-size: 16px
+      }
+      h2{
+        font-size: 80px;
+      }
+      .footer{
+        color: white;
+        padding:20px;
+        text-align:center;
+        background:black;
+      }
+      .fakeimg{
+        background-color:#aaa;
+        width:100%;
+        height:200%;
+        padding:20px;
+      }
+      p{
+        border:1px solid powderblue;
+        padding:30px;
+        background-color:#ddd;
+        margin:60px;
+        font-size: 16px;
+      }
+      .text-justify-xs{
+        text-align: justify;
+      }
+      @media (min-width: 768px){
+        .text-justify-sm{
+          text-align: justify;
+        }
+      }
+      @media (min-width: 992px){
+        .text-justify-md{
+          text-align: justify;
+        }
+      }
+      @media (min-width: 1200px){
+        .text-justify-lg{
+          text-align: justify;
+        }
+      }
+    </style>
+    <title>Birthday Countdown Timer</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <div class="countDownContainer">
+          <h1>Birthday Countdown</h1>
+          <div id="clockdiv">
+            <div>
+              <span class="days" id="day"></span>
+              <span class="smalltext">Days</span>
+            </div>
+            <div>
+              <span class="hours" id="hour"></span>
+              <span class="smalltext">Hours</span>
+            </div>
+            <div>
+              <span class="minutes" id="minute"></span>
+              <span class="smalltext">Minutes</span>
+            </div>
+            <div>
+              <span class="seconds" id="second"></span>
+              <span class="smalltext">Seconds</span>
+            </div>
+          </div>
+      </div>
+    </div>
+      <h2 id="demo"></h2>
+      <div class='fakeimg'><img src="Bolu1.jpg" width="50%" height="100%" alt="Image not found" /><img src="Bolu2.jpg" width="50%" height="100%" alt="Image not found" /></div>
+        <p>
+          <strong>Odebe Boluwatife</strong> also known as <strong><em>Bee</em></strong> was born <strong>22nd of June</strong>. She went to Wesley Girls Ogun State; She currently resides with her Parents and Siblings
+          in Lagos State, Nigeria. She's fun to be with, unique and optimistic not to mention hardworking and brilliant. She has a captivating smile that can easily turn to a scowl if you upset her so Don't!.
+        </p>
+      <div class="footer">
+        <h3>Contact Me On:</h3>
+        <h4>Whatsapp:<i>09029099111 or 08161362581</i></h4>
+        <h4>Facebook:<i>Samuel Igbinijesu</i></h4>
+        <h4>Instagram & Twitter:<i>Samuel IG</i></h4>
+        <h4>Email:<i>exenexmedia@gmail.com</i></h4>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var deadline = new Date("june 22, 2020 00:00:00")
+      var x = setInterval(function functionName() {
+        var now = new Date().getTime();
+        var t = deadline - now;
+        var days = Math.floor(t/(1000*60*60*24));
+        var hours = Math.floor((t%(1000*60*60*24))/(1000*60*60));
+        var minutes = Math.floor((t%(1000*60*60))/(1000*60));
+        var seconds = Math.floor((t%(1000*60))/(1000));
+        document.getElementById("day").innerHTML = days;
+        document.getElementById("hour").innerHTML = hours;
+        document.getElementById("minute").innerHTML = minutes;
+        document.getElementById("second").innerHTML = seconds;
+        var text = document.querySelector("h2")
+
+        text.style.color= "red";
+
+        function  getRandomColor() {
+          var letters = "0123456789ABCDEF";
+          var color = '#';
+          for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random()*16)]
+          }
+          return color
+        }
+
+        setInterval(function changeParagraphColor() {
+          colorInput = getRandomColor()
+          text.style.color = colorInput;
+        }, 500);
+        if (t<0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "Happy Birthday!";
+          document.getElementById("day").innerHTML = "0";
+          document.getElementById("hour").innerHTML = "0";
+          document.getElementById("minute").innerHTML = "0";
+          document.getElementById("second").innerHTML = "0";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
